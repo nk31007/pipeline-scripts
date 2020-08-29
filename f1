@@ -3,11 +3,10 @@ pipeline {
     stages {
         stage ("Build") {
             environment {
-                var1="Test Processing"
+                MY_SEC_TEXT= credentials('My_SECRET_TEXT')
             }
-            
             steps{
-               sh "echo Sample ${BUILD_ID} And var is ${var1}"
+               sh "echo Sample ${BUILD_ID} And var is AND ${MY_SEC_TEXT}"
             }
         }
     }
