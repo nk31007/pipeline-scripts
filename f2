@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+   tools {
+  maven 'maven3'
+}
+    stages {
+        stage("git scm"){
+            steps {
+            git 'https://github.com/javahometech/my-app.git'
+        }
+        }
+        
+        stage("mvn cmd") {
+            steps {
+            sh label: '', script: 'mvn clean install'
+        }
+        }
+	}
+	}
+
